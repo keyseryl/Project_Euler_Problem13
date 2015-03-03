@@ -1,13 +1,17 @@
 package problem13;
 
 import java.math.BigInteger;
-
+/**
+ * This class will process large integer numbers
+ * @author Yevgeny Keyser
+ *
+ */
 public class LargeSum {
 	/**
 	 * Add large numbers
-	 * @return the sum of those numbers
+	 * @return first ten digits of a sum
 	 */
-	public BigInteger LargeSum(){
+	public String LargeSum(){
 		// Create a Big Integer array to hold some large numbers
 		BigInteger[] BigArray = {
 	            new BigInteger ("37107287533902102798797998220837590246510135740250"),
@@ -114,12 +118,21 @@ public class LargeSum {
 	        };
 			// Create a Big Integer variable to hold the sum
 	        BigInteger largeSum = new BigInteger("0");
+	        //Create an empty String
+	        String result = "";
 	        // Create a for loop to step through each element in the Big array 
 	        // and add it to a largeSum variable
 	        for( int start = 0; start < BigArray.length; start++ ){
 	        	largeSum = largeSum.add(BigArray[start]);
 	        }
-	        // Return the sum of all elements in the big array
-	        return largeSum;
+	        
+	        //Convert largeSum into a String
+	        String temp = largeSum.toString();
+	        // Add first ten characters to a String result
+	        for( int i = 0; i < 10; i++ ){
+				result += temp.charAt(i);
+			}
+	        // Return answer
+	        return result;
 	}
 }
